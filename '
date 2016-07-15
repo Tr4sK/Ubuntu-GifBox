@@ -211,9 +211,11 @@ def start_photobooth():
 	GPIO.output(led3_pin,True) #turn on the LED
 	# on fait du watermark !
 	for x in range(1, 13):
+		print "x" + x.__str__()
 		y = x%4
 		if y <= 0:
 			y = 4
+		print "  y" + y.__str__()
 		#if x<10:
 		xy = "0" + y.__str__() 
 		#else:
@@ -295,8 +297,8 @@ GPIO.output(led4_pin,False);
 #show_image(real_path + "/intro.png");
 
 while True:
-        GPIO.output(led4_pin,True); #light up the lights to show the app is running
+        GPIO.output(led2_pin,True); #light up the lights to show the app is running
         GPIO.wait_for_edge(button1_pin, GPIO.FALLING)
 	time.sleep(0.2) #debounce
-        GPIO.output(led4_pin,False); #turn off the lights
+        GPIO.output(led2_pin,False); #turn off the lights
 	start_photobooth()
